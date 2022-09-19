@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    </script>
+    
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" crossorigin="anonymous"></script>
+
+
+    
+	<style>
+		.row-heading {
+			font-size: 2rem;
+			font-weight: bold;
+			padding: 5px 0px;
+		}
+
+		.total {
+			font-size: 2rem;
+			font-weight: bold;
+		}
+
+		.total-val {
+			font-size: 2rem;
+			/* border: */
+		}
+
+		.row {
+			clear: both;
+		}
+
+		.col-4 {
+			width: 33%;
+			float: left;
+		}
+
+		div.text {
+			position: relative;
+		}
+
+		div.text-month {
+			position: relative;
+		}
+
+		div.text input {
+			padding-left: 15px;
+		}
+
+		.currency-wrap{
+			position:relative;
+		}
+
+		.currency-code{
+				position:absolute;
+				left:4px;
+				top:2px;
+		}
+
+	    .money-code{
+			    position:absolute;
+				left:2px;
+				top:10px;
+				font-size:30px;
+		}
+
+		.text-currency{
+			padding:10px 20px;
+			border:solid 1px #ccc;
+			border-radius:5px;
+		}
+		
+		
+		div.text:after {
+			position: absolute;
+			left: 6px;
+			top: px;
+			content: '';
+			
+		}
+
+		#credit-gauge-wrp {
+			display: flex;
+			max-width: 960px;
+			margin: 0 auto;
+		}
+
+		#credit-gauge {
+			display: block;
+			width: 70%;
+		}
+
+		#credit-score-input {
+			flex-grow: 1;
+		}
+
+		#credit-score-canvas {
+			max-width: 600px;
+			flex-grow: 2;
+		}
+
+		.credit-score-label {
+			margin: 10px 0;
+			display: block;
+		}
+
+		#credit-score-input input {
+			font-size: 80px;
+			display: block;
+			padding: 0 8px;
+			border: 2px solid #0b530b;
+		}
+
+		@media only screen and (max-width: 600px) {
+			#credit-score-input input {
+				font-size: 40px;
+			}
+		}
+
+		@media only screen and (max-width: 400px) {
+			#credit-score-input input {
+				font-size: 28px;
+			}
+		}
+
+		.strong {
+			font-weight: 800;
+		}
+
+		.ml-4 {
+			margin-left: 80px;
+		}
+	</style>
+</head>
+    <title>"YOUR PROPOSED SAVINGS ANALYSIS"</title>
+    <link rel="shortcut icon" type="image/png" href="https://liberty1financial.com/wp-content/uploads/2022/05/Lib1LOGO.png">
+
+<body>
+
+	<h1 style="color:black;font-size:60px;">YOUR PROPOSED SAVINGS ANALYSIS&nbsp;&nbsp;
+		<img src="https://liberty1financial.com/wp-content/uploads/2022/05/Lib1LOGO.png" width="400" height="120">
+	</h1>
+
+	<div class="container mt-4">
+		<div class="row">
+			<div class="col-4">
+				<div class="row-heading">----Your Current Situation---- </div>
+				<br />
+				<div class="ml-4">
+					<strong>CURRENT TOTAL ACCOUNTS:</strong>
+					<br><input type="number" value="" class="qty" id="qty_cta" />
+					<p></p>
+
+					<strong>TOTAL UNSECURED DEBT:</strong>
+					<div class="text">
+						<span class="currency-code">$</span>
+						<input type="text" class="qty apply-comma" value="" id="qty_tud" /></div>
+					<p></p>
+
+					<strong>MONTHLY MIN. PAYMENTS REPORTED:</strong>
+					<div class="text">
+						<span class="currency-code">$</span>
+						<input type="text" class="qty apply-comma" value="" id="qty_mpr" /></div>
+					<p></p>
+
+					<form action="/action_page.php">
+						<strong><label for="state">STATE:</label><br></strong>
+						<select name="state" id="state"style="height:50px; width:220px;">
+							<option value="Alabama" blp="true" fee="25">Alabama (AL)</option>
+							<option value="Alaska" blp="false" fee="25">Alaska (AK)</option>
+							<option value="Arizona" blp="true" fee="25">Arizona (AZ)</option>
+							<option value="Arkansas" blp="true" fee="25">Arkansas (AR)</option>
+							<option value="California" blp="true" fee="25">California (CA)</option>
+							<option value="Colorado" blp="false" fee="25">Colorado (CO)</option>
+							<option value="Connecticut" blp="false" fee="27">Connecticut (CT)</option>
+							<option value="Delaware" blp="false" fee="25">Delaware (DE)</option>
+							<option value="District of Columbia" blp="true" fee="25">District of Columbia (DC)</option>
+							<option value="Florida" blp="true" fee="25">Florida (FL)</option>
+							<option value="Georgia" blp="false" fee="27">Georgia (GA)</option>
+							<option value="Hawaii" blp="false" fee="25">Hawaii (HI)</option>
+							<option value="Idaho" blp="false" fee="20">Idaho (ID)</option>
+							<option value="Illinois" blp="false" fee="27">Illinois (IL)</option>
+							<option value="Indiana" blp="true" fee="25">Indiana (IN)</option>
+							<option value="Iowa" blp="false" fee="25">Iowa (IA)</option>
+							<option value="Kansas" blp="false" fee="27">Kansas (KS)</option>
+							<option value="Kentucky" blp="true" fee="25">Kentucky (KY)</option>
+							<option value="Lousiana" blp="true" fee="25">Lousiana (LA)</option>
+							<option value="Maine" blp="false" fee="27">Maine (ME)</option>
+							<option value="Maryland" blp="true" fee="25">Maryland (MD)</option>
+							<option value="Massachusetts" blp="true" fee="25">Massachusetts (MA)</option>
+							<option value="Michigan" blp="true" fee="25">Michigan (MI)</option>
+							<option value="Minnesota" blp="false" fee="15">Minnesota (MN)</option>
+							<option value="Mississippi" blp="true" fee="25">Mississippi (MS)</option>
+							<option value="Missouri" blp="true" fee="25">Missouri (MO)</option>
+							<option value="Montana" blp="false" fee="18">Montana (MT)</option>
+							<option value="Nebraska" blp="true" fee="25">Nebraska (NE)</option>
+							<option value="Nevada" blp="true" fee="25">Nevada (NV)</option>
+							<option value="New Hampshire" blp="false" fee="25">New Hampshire (NH)</option>
+							<option value="New Jersey" blp="false" fee="27">New Jersey (NJ)</option>
+							<option value="New Mexico" blp="false" fee="25">New Mexico (NM)</option>
+							<option value="New York" blp="true" fee="25">New York (NY)</option>
+							<option value="North Carolina" blp="false" fee="25">North Carolina (NC)</option>
+							<option value="North Dakota" blp="false" fee="25">North Dakota (ND)</option>
+							<option value="Ohio" blp="false" fee="27">Ohio (OH)</option>
+							<option value="Oklahoma" blp="true" fee="25">Oklahoma (OK)</option>
+							<option value="Oregon" blp="false" fee="25">Oregon (OR)</option>
+							<option value="Pennsylvania" blp="true" fee="25">Pennsylvania (PA)</option>
+							<option value="Rhode Island" blp="false" fee="25">Rhode Island (RI)</option>
+							<option value="South Carolina" blp="false" fee="27">South Carolina (SC)</option>
+							<option value="South Dakota" blp="true" fee="25">South Dakota (SD)</option>
+							<option value="Tennessee" blp="true" fee="25">Tennessee (TN)</option>
+							<option value="Texas" blp="true" fee="25">Texas (TX)</option>
+							<option value="Utah" blp="true" fee="25">Utah (UT)</option>
+							<option value="Vermont" blp="false" fee="27">Vermont (VT)</option>
+							<option value="Virginia" blp="false" fee="27">Virginia (VA)</option>
+							<option value="Washington" blp="false" fee="25">Washington (WA)</option>
+							<option value="West Virginia" blp="false" fee="27">West Virginia (WV)</option>
+							<option value="Wisconsin" blp="true" fee="25">Wisconsin (WI)</option>
+							<option value="Wyoming" blp="false" fee="25">Wyoming (WY)</option>
+						</select>
+					</form>
+					<br><br>
+                    <br>
+					<strong>SUGGESTED REPAYMENT TERM:</strong><br />
+					<div style="display: inline-block;" class="text-month"><input type="number"  id="years" class="strong" style="height:50px; width:160px; font-size:25px;color:#ff0000;" /><span style="margin-left:-120px;">Years</div>
+					<div style="display: inline-block;" class="text-month"><input type="number"  id="months" class="strong" style="height:50px; width:120px; font-size:25px;color:#ff0000;" /><span style="margin-left:-80px;">Months</span></div>
+					<p></p>
+
+					<strong>TOTAL REPAYMENT WITH INTEREST:</strong>
+					<div class="text">
+						<span class="money-code">$</span>
+						<input type="text" id="qty_tri" class="strong apply-comma" style="height:50px; width:220px; font-size:25px;color:#ff0000;" /></div>
+					<p></p>
+
+					<strong>CURRENT INTEREST PAYBACK:</strong>
+					<div class="text">
+						<span class="money-code">$</span>
+						<input type="text" id="qty_cip" class="strong apply-comma" style="height:50px; width:220px; font-size:25px;color:#ff0000;" /></div>
+                        <p></p>
+
+
+
+
+
+					</div>
+				</div>
+			</div>
+
+
+			<div class="col-4">
+                <br>
+
+				<div class="row-heading">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Credit Score</div>
+                <div id="credit-gauge-wrp"></div>
+                <div id="credit-score-input"></div>
+                <input id="credit-score-input-value" class="credit-score-value" style="height:80px; width:240px; font-size:60px;margin-left:80px;" size=3 value="">
+				<br />
+                <br>
+                <br>
+
+                <div id="credit-score-canvas">
+                    <canvas id="credit-gauge" width=600 height=320 style="margin-left:-10px;"></canvas>
+				<div class="ml-4">
+                    <br>
+                    <br>
+
+                    
+
+
+
+                    <strong>ESTIMATED MONTHLY SAVINGS:</strong>
+                    <div class="text">
+                    <span class="money-code">$</span>
+                    <input type="text" id="price_ems" class="strong apply-comma" style="height:50px; width:240px; font-size:40px;color:#00cc00;"/><span style="margin-left:-100px;"style="height:120px;">Every Month</span></div>
+                <br>
+					<p></p>
+
+                    <strong>ESTIMATED TOTAL SAVINGS:</strong>
+                    <div class="text">
+                        <span class="money-code">$</span>
+                        <input type="text" class="strong apply-comma" decimal="2" id="price_cip" style="height:50px; width:240px; font-size:40px;color:#00cc00;"/>
+                    </div>
+                    <p></p>
+
+
+                   
+				</div>
+			</div>
+		</div>
+
+        <div class="col-4">
+            <div class="row-heading">----Your New Option----</div>
+            <br />
+            <div class="ml-4">
+                <strong>TOTAL ACCOUNTS APPROVED (BLUE CHECK BOXES):</strong><br><input type="text" data-bind=""textInput value="" id="price_cta" />
+                <p></p>
+
+                <strong>TOTAL UNSECURED DEBT APPROVED:</strong>
+                <div class="text">
+                    <span class="currency-code">$</span>
+                    <input type="text" class="apply-comma" id="price_tud" /></div>
+                <p></p>
+
+                <strong>ESTIMATED MONTHS TO PAY OFF THESE DEBTS:</strong>
+                <div class="slidecontainer" id="price_rmp">
+                    <form>
+                        <input type="range" id="amountRange1" name="amountRange1" min="12" max="60" value="0" oninput="this.form.amountInput1.value=this.value" />
+                        <input type="number" id="amountInput1" name="amountInput1" style="width:120px;" min="12" max="60" value="0" oninput="this.form.amountRange1.value=this.value" /><span style="margin-left:-80px;">Months</span>
+                    </form>
+                </div>
+                <p></p>
+                
+                <strong>ESTIMATED TOTAL PAYMENT TO CREDITORS:</strong>
+                <div class="text">
+                    <span class="money-code">$</span>
+                    <input type="text" id= "price_tri" class="strong apply-comma" style="height:50px; width:220px; font-size:40px;color:#00cc00;"/><span style="margin-left:-120px;"style="height:120px;"></span></div>
+                    <br>
+                <p></p>
+
+                <strong>YOUR NEW PAYMENT OPTIONS:</strong>
+                     <div class="text">
+                        <span class="money-code">$</span>
+                        <input type="text" id="price_biw" class="strong apply-comma" style="height:50px; width:220px; font-size:40px;color:#00cc00;"/><span style="margin-left:-100px;"style="height:120px;">Bi-Weekly</span></div>
+                    <br>
+
+                    <div class="text">
+                        <span class="money-code">$</span>
+                        <input type="text" id="price_semi" class="strong apply-comma" style="height:50px; width:220px; font-size:40px;color:#00cc00;"/><span style="margin-left:-100px;"style="height:120px;">Semi-Monthly</span></div>
+                    <br>
+
+                    <div class="text">
+                        <span class="money-code">$</span>
+                        <input type="text" id="price_str" class="strong apply-comma" style="height:50px; width:220px; font-size:40px;color:#00cc00;"/><span style="margin-left:-100px;"style="height:120px;">Monthly</span></div>
+                        <br> 
+                    <p></p>
+
+                
+            </div>
+        </div>
+    </div>
+        <br>
+<hr>
+
+		<script>
+			function ctf(val){
+				val = val.toString().replace(/\,/g,'');
+				return isNaN(parseFloat(val)) ? 0 : parseFloat(val);
+			}
+			function calculateTotal(processSlider) {
+				let unit_price = {
+					cta: 1,
+					tud: 12,
+					mpr: 2,
+					str: 43,
+					tri: 30,
+					cip: 56,
+					qstr: 5,
+					qtri: 8,
+					qcip: 12
+
+				};
+				let item_price = {}
+
+				item_price.qstr = ((ctf($("#qty_tud").val()) / ctf($("#qty_mpr").val())) / ("0.0906"));
+				console.log(item_price.qstr);
+				let years = 0;
+				let months = 0;
+				years = (item_price.qstr.toFixed(0) / 12).toFixed(0);
+				months = (item_price.qstr.toFixed(0) % 12).toFixed(0);
+
+
+				$("#years").val(years);
+				$("#months").val(months);
+
+				item_price.qtri = (ctf($("#qty_tud").val()) * .2199 / .059308)
+				$("#qty_tri").val(item_price.qtri.toFixed(2)).blur();
+
+				item_price.qcip = (ctf($("#qty_tud").val()) *.2199/ .081213)
+				$("#qty_cip").val(item_price.qcip.toFixed(2)).blur();
+
+				item_price.cta = (ctf($("#qty_cta").val()) * unit_price.cta)
+				$("#price_cta").val(item_price.cta).blur();
+
+				item_price.tud = (ctf($("#qty_tud").val()) * ("1"));
+				$("#price_tud").val(item_price.tud).blur();
+
+				if(processSlider){
+					if (item_price.tud > 75000) {
+						document.getElementById('amountRange1').value = 60;
+						document.getElementById('amountInput1').value = 60;
+					} else if (item_price.tud >= 30000) {
+						document.getElementById('amountRange1').value = 55;
+						document.getElementById('amountInput1').value = 55;
+					} else if (item_price.tud < 30000) {
+						document.getElementById('amountRange1').value = 48;
+						document.getElementById('amountInput1').value = 48;
+					}
+				}
+				
+				//item_price.mpr = ($("#qty_tud").val() * ("0.014496"))
+				var state = $('#state').val();
+				var blp = $('#state option[value="' + state + '"]').attr("blp") === "true";
+				var feePer = parseFloat($('#state option[value="' + state + '"]').attr("fee"));
+				if(processSlider){
+					document.getElementById('amountRange').value = feePer;
+					document.getElementById('amountInput').value = feePer;
+				} else {
+					feePer = document.getElementById('amountRange').value;
+				}
+				var fee = feePer / 100;
+				var noOfMonths = ctf($("#amountInput1").val());
+
+				
+				//TOTAL REPAYMENT=(DEBT * .5) + (DEBT * .25) + (9.95 + (10.75 * #OF MONTHS) + (15 * # OF MONTHS) 
+				var totalRepayment = 0;
+				if (blp) {
+					totalRepayment = (item_price.tud * 0.5) + (item_price.tud * fee) + (9.95 + (10.75 * noOfMonths) + (15 * noOfMonths));
+				} else {
+					totalRepayment = (item_price.tud * 0.5) + (item_price.tud * fee) + (9.95 + (10.75 * noOfMonths));
+				}
+
+                item_price.trep=(totalRepayment);
+                $("#price_trep").val(item_price.trep.toFixed(0)).blur();
+
+				item_price.mpr = (ctf(totalRepayment) / (ctf($("#amountInput1").val())));
+				$("#price_str").val(item_price.mpr.toFixed(2)).blur();
+
+                item_price.biw = (ctf(totalRepayment) / ((noOfMonths/12)*26))
+				$("#price_biw").val(item_price.biw.toFixed(2)).blur();
+                
+                item_price.semi = (ctf(totalRepayment) / (noOfMonths * 2))
+				$("#price_semi").val(item_price.semi.toFixed(2)).blur();
+
+				item_price.ems = (ctf($("#qty_mpr").val()) - item_price.mpr)
+				$("#price_ems").val(item_price.ems.toFixed(2)).blur();
+
+				item_price.tri = (ctf($("#qty_tud").val()) / ("2"))
+				$("#price_tri").val(item_price.tri.toFixed(2)).blur();
+
+				item_price.cip = (ctf($("#qty_tri").val()) * ("0.785"))
+				$("#price_cip").val(item_price.cip.toFixed(2)).blur();
+			}
+
+			$(function () {
+				
+				$(".qty").on("change keyup", function(){ calculateTotal(true); })
+				$(".apply-comma").on("blur", function(){ 
+					var decimal = $(this).attr('decimal') === undefined ? 0 : parseInt($(this).attr('decimal'));
+					$(this).val(ctf($(this).val()).toLocaleString('en-US', {minimumFractionDigits: decimal, maximumFractionDigits: decimal}));
+				})
+				$(".apply-comma").on("focus", function(){ 
+					var decimal = $(this).attr('decimal') === undefined ? 0 : parseInt($(this).attr('decimal'));
+					if($(this).val() !== ""){
+						$(this).val(ctf($(this).val()).toFixed(decimal));
+					}
+				})
+				
+				$("#state").on("change", function() {
+					const val2=document.getElementById("price_tud").value
+					const val_s2=document.getElementById("qty_tud").value
+
+
+					document.getElementById("qty_tud").value=val2
+					
+					document.getElementById("price_tud").value=val2;
+					calculateTotal(true);
+					document.getElementById("qty_tud").value=val_s2
+
+				});
+				$("#amountRange1, #amountRange").on("change keyup", function(){
+
+					const val1=document.getElementById("price_tud").value
+					const val_s=document.getElementById("qty_tud").value
+					
+					
+					document.getElementById("qty_tud").value=val1
+					
+					document.getElementById("price_tud").value=val1;
+					calculateTotal(false);
+
+					document.getElementById("qty_tud").value=val_s
+				});
+				$("#amountInput1, #amountInput").on("change keyup", function(){
+
+                    const val1=document.getElementById("price_tud").value
+                    const val_s=document.getElementById("qty_tud").value
+
+
+                    document.getElementById("qty_tud").value=val1
+
+                    document.getElementById("price_tud").value=val1;
+                    calculateTotal(false);
+
+                    document.getElementById("qty_tud").value=val_s
+                })
+            
+
+				// var changer=document.getElementById("price_tud")
+				// changer.addEventListener("change",function(e){
+				// 	e.preventDefault();
+
+				// })
+
+			});
+		</script>
+		<div style="clear:both;"></div>
+		<br />
+			</div>
+		</div>
+	</div>
+
+	<script>
+		var seg = [
+			{
+				'label': 'BAD',
+				'color': '#ff4500',
+				'min': 0,
+				'max': 20
+			},
+			{
+				'label': 'POOR',
+				'color': '#ff8000',
+				'min': 20,
+				'max': 40
+			},
+			{
+				'label': 'FAIR',
+				'color': '#eeee00',
+				'min': 40,
+				'max': 60
+			},
+			{
+				'label': 'GOOD',
+				'color': '#00cd00',
+				'min': 60,
+				'max': 80
+			},
+			{
+				'label': 'EXCELLENT',
+				'color': '#008000',
+				'min': 80,
+				'max': 100
+			},
+		];
+
+		var cv = document.getElementById('credit-gauge');
+		var w = cv.width;
+		var h = cv.height;
+		var ctx = cv.getContext('2d');
+
+		var bt_c = 20;
+
+		var cx = Math.round(w / 2);
+		var cy = h - bt_c;
+
+		var desc_h = 0;
+
+		var r1 = Math.round(w / 2);
+		var r2 = r1 - 40;
+		var r3 = 60;
+		var r_tx = Math.round((r1 + r2) / 2) - 2;
+
+		var ra1 = 20;
+		var ra2 = 5;
+		var ar_half_base = 12;
+		var ar_half_end = 3;
+		var ar_len = Math.round(r2 * 0.75);
+
+		var arrow_value = 0;
+		var move_progress = null;
+
+		function draw_gauge() {
+
+			ctx.rect(0, 0, w, h);
+			ctx.fillStyle = "#fff";
+			ctx.fill();
+
+			ctx.beginPath();
+			ctx.arc(cx, cy, r1, -Math.PI, 0, 0);
+			ctx.fillStyle = "#cccccc";
+			ctx.fill();
+
+			lineHeight = 15;
+			ctx.font = '20px Arial';
+
+			for (var i = 0; i < seg.length; i++) {
+
+				fi1 = (seg[i]['min'] / 100 - 1) * Math.PI;
+				fi2 = (seg[i]['max'] / 100 - 1) * Math.PI;
+
+				ctx.beginPath();
+				ctx.moveTo(cx, cy);
+				ctx.arc(cx, cy, r2, fi1, fi2);
+				ctx.lineTo(cx, cy);
+				ctx.fillStyle = seg[i]['color'];
+				ctx.fill();
+
+				if (i != 0) {
+					ctx.beginPath();
+					ctx.moveTo(cx + r3 * Math.cos(fi1), cy + r3 * Math.sin(fi1));
+					ctx.lineTo(cx + r2 * Math.cos(fi1), cy + r2 * Math.sin(fi1));
+					ctx.strokeStyle = "#ffffff";
+					ctx.stroke();
+				}
+
+				t_fi = (fi1 + fi2) / 2;
+				tx = cx + r_tx * Math.cos(t_fi);
+				ty = cy + r_tx * Math.sin(t_fi);
+
+				if (i == 4) {
+					draw_text_curved(cx, cy, r_tx, t_fi, 0.053, seg[i]['label']);
+				} else {
+					draw_text(tx, ty, t_fi, seg[i]['label']);
+				}
+			}
+
+			ctx.beginPath();
+			ctx.arc(cx, cy, r3, -Math.PI, 0, 0);
+			ctx.fillStyle = "#cccccc";
+			ctx.fill();
+
+			ctx.beginPath();
+			ctx.arc(cx, cy, r2, -Math.PI, 0, 0);
+			ctx.strokeStyle = "#ffffff";
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.arc(cx, cy, r3, -Math.PI, 0, 0);
+			ctx.strokeStyle = "#ffffff";
+			ctx.stroke();
+		}
+
+		function draw_text(x, y, fi, text) {
+
+			ctx.save();
+			ctx.fillStyle = '#000000';
+			ctx.strokeStyle = "#000000";
+			ctx.translate(tx, ty);
+			ctx.rotate(fi + Math.PI / 2);
+
+			ctx.textAlign = 'center';
+			ctx.fillText(text, 0, lineHeight / 2);
+
+			ctx.restore();
+		}
+
+		function draw_text_curved(cx, cy, r, fi, fi_step, text) {
+
+			for (var i = 0; i < text.length; i++) {
+
+				fii = fi + fi_step * (i - (text.length / 2));
+				tx = cx + r * Math.cos(fii);
+				ty = cy + r * Math.sin(fii);
+
+				draw_text(tx, ty, fii, text[i]);
+			}
+		}
+
+		function draw_arrow(x) {
+
+			ar_fill = "#444";
+			ind_color = "gray";
+
+			fi = (x / 100 - 1) * Math.PI;
+
+			aex = cx + ar_len * Math.cos(fi);
+			aey = cy + ar_len * Math.sin(fi);
+
+			ctx.beginPath();
+			ctx.moveTo(cx + ar_half_base * Math.cos(fi - Math.PI / 2), cy + ar_half_base * Math.sin(fi - Math.PI / 2));
+			ctx.lineTo(aex + ar_half_end * Math.cos(fi - Math.PI / 2), aey + ar_half_end * Math.sin(fi - Math.PI / 2));
+			ctx.lineTo(aex + ar_half_end * Math.cos(fi + Math.PI / 2), aey + ar_half_end * Math.sin(fi + Math.PI / 2));
+			ctx.lineTo(cx + ar_half_base * Math.cos(fi + Math.PI / 2), cy + ar_half_base * Math.sin(fi + Math.PI / 2));
+			ctx.fillStyle = ar_fill;
+			ctx.fill();
+
+			ctx.beginPath();
+			ctx.arc(aex, aey, ar_half_end, 0, 2 * Math.PI);
+			ctx.fillStyle = ar_fill;
+			ctx.fill();
+
+			ctx.beginPath();
+			ctx.arc(cx, cy, ra1, 0, 2 * Math.PI);
+			ctx.fillStyle = ar_fill;
+			ctx.fill();
+
+			for (i = 0; i < seg.length; i++) {
+
+				if (x >= seg[i]['min'] && x <= seg[i]['max']) {
+					ind_color = seg[i]['color'];
+				}
+			}
+
+			ctx.beginPath();
+			ctx.arc(cx, cy, ra2, 0, 2 * Math.PI);
+			ctx.fillStyle = ind_color;
+			ctx.fill();
+		}
+
+		function progress_line(x) {
+
+			return Math.sin(2 * Math.PI * x * x * x * x) * (1 - x) + x;
+		}
+
+		function draw_frame() {
+
+			if (move_progress === null) {
+
+				return;
+			}
+
+			x_now = move_progress.from + progress_line(move_progress.progress) * (move_progress.to - move_progress.from);
+			draw_gauge();
+			draw_arrow(x_now);
+			arrow_value = x_now;
+
+			if (move_progress.progress < 1) {
+
+				move_progress.progress = Math.min(1, move_progress.progress + 0.025);
+				move_progress.timer = setTimeout(draw_frame, 10);
+
+			} else {
+
+				move_progress = null;
+			}
+		}
+
+		function move_arrow(n) {
+
+			move_progress = {
+				'from': arrow_value,
+				'to': n,
+				'progress': 0,
+				'timer': setTimeout(draw_frame, 10)
+			}
+		}
+
+		function credit_score_normalized(ss) {
+
+			var ss1 = [
+				300,
+				580,
+				670,
+				720,
+				780,
+				850
+			];
+			var ss2 = [
+				0,
+				20,
+				40,
+				60,
+				80,
+				100
+			];
+			var ss3 = [
+				10,
+				30,
+				50,
+				70,
+				90
+			];
+
+			var sn = 0;
+
+			for (var i = 0; i < ss1.length; i++) {
+
+				if (ss >= ss1[i] && ss <= ss1[i + 1]) {
+					//				sn = (ss2[i+1]-ss2[i])*(ss-ss1[i])/(ss1[i+1]-ss1[i]) + ss2[i];
+					sn = ss3[i];
+				}
+			}
+
+			return sn;
+		}
+
+		function credit_score_input() {
+
+			var x = parseInt(document.getElementById("credit-score-input-value").value);
+			if (x >= 300 && x <= 850 && x != arrow_value) {
+				xn = credit_score_normalized(x);
+				move_arrow(xn);
+			}
+		}
+
+		document.addEventListener("DOMContentLoaded", function (event) {
+
+			draw_gauge();
+			draw_arrow(0);
+			move_arrow(90);
+
+			document.getElementById("credit-score-input-value").addEventListener('change', credit_score_input);
+			document.getElementById("credit-score-input-value").addEventListener('input', credit_score_input);
+
+			credit_score_input();
+		});
+
+
+		var change=document.getElementById("price_tud")
+		change.addEventListener("keyup",function(e){
+			e.preventDefault();
+			
+			var value = change.value;
+			var test=document.getElementById("qty_tud")
+			const qty_tri=document.getElementById("qty_tri").value
+			const qty_cip=document.getElementById("qty_cip").value
+			const years=document.getElementById("years").value
+			const months=document.getElementById("months").value
+			const qty_tud=document.getElementById("qty_tud").value
+			test.value=value;
+			if(value!=null && value>0)
+			{
+				calculateTotal(true);
+			}
+			else{
+				var list =document.getElementsByClassName("apply-comma")
+				for(let elem of list)
+				{
+					elem.value=0
+				}
+			}
+	        document.getElementById("qty_tri").value=qty_tri
+			document.getElementById("qty_cip").value=qty_cip
+			document.getElementById("years").value=years
+			document.getElementById("months").value=months
+			document.getElementById("qty_tud").value=qty_tud
+
+			change.focus();
+		})
+
+		
+	</script>
+    <strong><hr></strong>
+	<div class="container mt-4">
+		<div class="row">
+			<div class="col-4">
+				<div class="row-heading"> </div>
+				<br />
+				<div class="ml-4">
+
+            </div>
+            <p></p>
+        </div>
+    </div>
+</div>
+
+
+        <div class="col-4">
+            <div class="row-heading">DO NOT SHARE BELOW LINE </div>
+             <br />
+            <div class="ml-4">
+                <strong>TOTAL REPAYMENT WITH FEES:</strong>
+                <div class="text">
+                <span class="money-code">$&nbsp;&nbsp;</span>
+                <input type="text" id="price_trep" class="strong apply-comma" style="height:50px; width:220px; font-size:40px;color:#00cc00;"/><span style="margin-left:-100px;"style="height:120px;"></span></div>
+            <br>
+
+				</div>
+            </div>
+        </div>
+        <div class="col-4">
+
+            <br />
+            <div class="ml-4">
+                <br>
+                <br>
+                <br>
+
+
+                <strong>FEES PERCENTAGE %:</strong>
+                <div class="slidecontainer" id="price_fpe">
+                    <form>
+                        <input type="range" id="amountRange" name="amountRange" min="18" max="27" value="25" oninput="this.form.amountInput.value=this.value" />
+                        <input type="number" id="amountInput" name="amountInput" style="width:120px;" min="18" max="27" value="25" oninput="this.form.amountRange.value=this.value" /><span style="margin-left:-80px;">Percent</span>
+                    </form>
+</body>
+
+</html>
